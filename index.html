@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Sabai Smile Company | Wellness & Health Tourism Thailand</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#061018;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+section{
+  padding:110px 8%;
+}
+
+.container{
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  z-index:9999;
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+  width:90%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:#00ffd5;
+}
+
+.logo span{
+  color:#fff;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:#fff;
+  font-size:15px;
+  transition:0.4s;
+}
+
+.nav-links a:hover{
+  color:#00ffd5;
+}
+
+.nav-btn{
+  padding:14px 28px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#00ffd5,#008cff);
+  color:#000;
+  font-weight:600;
+  transition:0.4s;
+}
+
+.nav-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(0,255,213,0.25);
+}
+
+/* =========================================
+   HERO CINEMATIC SLIDER
+========================================= */
+
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  height:100svh;
+  min-height:720px;
+  overflow:hidden;
+  background:#000;
+}
+
+.hero::before,
+.hero::after{
+  content:'';
+  position:absolute;
+  left:0;
+  width:100%;
+  height:42px;
+  z-index:220;
+  pointer-events:none;
+  background:#000;
+}
+
+.hero::before{
+  top:0;
+}
+
+.hero::after{
+  bottom:0;
+}
+
+.slider{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  transition:opacity 2s ease-in-out;
+}
+
+.slide.active{
+  opacity:1;
+  z-index:10;
+}
+
+.bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.08);
+  animation:zoomEffect 18s ease-in-out infinite;
+}
+
+.slide::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(255,255,255,0) 35%, rgba(0,0,0,0.55) 100%);
+  z-index:3;
+}
+
+.slide-env .bg{
+  background-position:center 38%;
+}
+
+.slide-innovation .bg{
+  background-position:center 32%;
+}
+
+.slide-health .bg{
+  background-position:center 30%;
+}
+
+.slide-exports .bg{
+  background-position:center 44%;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(100deg, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.42) 50%, rgba(0,0,0,0.9) 92%),
+    linear-gradient(180deg, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.1) 38%, rgba(0,0,0,0.78) 100%);
+}
+
+.glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.25;
+  animation:floatGlow 10s ease-in-out infinite;
+  z-index:4;
+}
+
+.glow1{
+  background:#00ffd5;
+  top:-250px;
+  right:-100px;
+}
+
+.glow2{
+  background:#008cff;
+  bottom:-250px;
+  left:-100px;
+}
+
+.glow3{
+  background:#00ff95;
+  top:-150px;
+  left:-120px;
+}
+
+.glow4{
+  background:#7b5cff;
+  bottom:-250px;
+  right:-120px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:100;
+  top:50%;
+  transform:translateY(-50%);
+  padding-left:8%;
+  max-width:800px;
+  animation:fadeUp 1.4s ease;
+}
+
+.hero-tag{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:50px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
+  color:#00ffd5;
+  letter-spacing:2px;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.hero-content h1{
+  font-size:78px;
+  line-height:1.08;
+  margin-bottom:28px;
+  font-weight:800;
+  color:#fff;
+  text-shadow:0 10px 35px rgba(0,0,0,0.5);
+}
+
+.hero-content p{
+  font-size:20px;
+  color:#e2e2e2;
+  line-height:1.9;
+  margin-bottom:40px;
+  max-width:650px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.hero-btn{
+  padding:17px 34px;
+  border-radius:50px;
+  font-weight:600;
+  transition:0.4s ease;
+  font-size:15px;
+}
+
+.hero-btn.primary{
+  background:linear-gradient(135deg,#00ffd5,#00a2ff);
+  color:#000;
+}
+
+.hero-btn.secondary{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+}
+
+.hero-btn:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 15px 35px rgba(0,255,213,0.25);
+}
+
+.slider-controls{
+  position:absolute;
+  bottom:56px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+  z-index:240;
+}
+
+.dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  transition:0.4s;
+}
+
+.dot.active{
+  width:40px;
+  border-radius:40px;
+  background:#00ffd5;
+}
+
+/* =========================================
+   SECTION TITLES
+========================================= */
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title h2{
+  font-size:48px;
+  color:#00ffd5;
+  margin-bottom:18px;
+}
+
+.section-title p{
+  color:#cfcfcf;
+  max-width:750px;
+  margin:auto;
+  line-height:1.9;
+}
+
+/* =========================================
+   SERVICE CARDS
+========================================= */
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+.card{
+  position:relative;
+  padding:40px;
+  border-radius:28px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  overflow:hidden;
+  transition:0.5s;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(0,255,213,0.08);
+  top:-70px;
+  right:-70px;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#00ffd5;
+  box-shadow:0 20px 40px rgba(0,255,213,0.12);
+}
+
+.card h3{
+  color:#00ffd5;
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.card p{
+  color:#d6d6d6;
+  line-height:1.9;
+}
+
+/* =========================================
+   PRODUCT CARDS
+========================================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+.product-card{
+  background:#0d1720;
+  border-radius:28px;
+  overflow:hidden;
+  transition:0.5s;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.product-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,255,213,0.12);
+}
+
+.product-img{
+  height:250px;
+  background-size:cover;
+  background-position:center;
+}
+
+.product-content{
+  padding:30px;
+}
+
+.product-content h4{
+  font-size:24px;
+  color:#00ffd5;
+  margin-bottom:15px;
+}
+
+.product-content p{
+  line-height:1.9;
+  color:#d6d6d6;
+  margin-bottom:24px;
+}
+
+.product-price{
+  display:block;
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.product-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.add-to-cart{
+  border:none;
+  cursor:pointer;
+}
+
+.cart-toggle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.22);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.cart-toggle:hover{
+  border-color:#00ffd5;
+  color:#00ffd5;
+}
+
+.cart-count{
+  min-width:24px;
+  height:24px;
+  padding:0 6px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  background:#00ffd5;
+  color:#000;
+  font-weight:700;
+}
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:-430px;
+  width:100%;
+  max-width:420px;
+  height:100vh;
+  background:#0b131b;
+  border-left:1px solid rgba(255,255,255,0.1);
+  z-index:12000;
+  display:flex;
+  flex-direction:column;
+  transition:right 0.35s ease;
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-header{
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.cart-header h3{
+  color:#00ffd5;
+}
+
+.close-btn{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+  line-height:1;
+}
+
+.cart-items{
+  padding:24px;
+  overflow-y:auto;
+  flex:1;
+}
+
+.cart-empty{
+  color:#8f9aa4;
+  text-align:center;
+  margin-top:40px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  margin-bottom:14px;
+}
+
+.cart-item h5{
+  font-size:15px;
+  margin-bottom:6px;
+}
+
+.cart-item p{
+  color:#a9b3bc;
+  font-size:13px;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty-controls button{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  background:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+.cart-footer{
+  padding:24px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  margin-bottom:16px;
+}
+
+.checkout-btn{
+  width:100%;
+  border:none;
+  cursor:pointer;
+}
+
+.checkout-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:13000;
+  padding:20px;
+}
+
+.checkout-modal.open{
+  display:flex;
+}
+
+.checkout-box{
+  width:100%;
+  max-width:680px;
+  background:#0d1720;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;
+  padding:28px;
+}
+
+.checkout-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.checkout-top h3{
+  color:#00ffd5;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.checkout-grid input,
+.checkout-grid textarea{
+  width:100%;
+  background:#101e29;
+  border:1px solid rgba(255,255,255,0.1);
+  color:#fff;
+  border-radius:12px;
+  padding:12px;
+  font-family:inherit;
+}
+
+.checkout-grid .full{
+  grid-column:1/-1;
+}
+
+.checkout-summary{
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:16px;
+  max-height:150px;
+  overflow:auto;
+}
+
+.checkout-summary p{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.checkout-total{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:16px;
+  font-size:18px;
+}
+
+.paypal-note{
+  color:#b9c4cd;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.auth-toggle{
+  border:none;
+  cursor:pointer;
+}
+
+.user-chip{
+  display:none;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  font-size:13px;
+}
+
+.user-chip button{
+  border:none;
+  background:none;
+  color:#00ffd5;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.auth-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:14000;
+  padding:20px;
+}
+
+.auth-modal.open{
+  display:flex;
+}
+
+.auth-box{
+  width:100%;
+  max-width:520px;
+  background:#0d1720;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;
+  padding:26px;
+}
+
+.auth-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.auth-head h3{
+  color:#00ffd5;
+}
+
+.auth-tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.auth-tab{
+  flex:1;
+  border:1px solid rgba(255,255,255,0.2);
+  background:transparent;
+  color:#fff;
+  border-radius:12px;
+  padding:10px;
+  cursor:pointer;
+}
+
+.auth-tab.active{
+  border-color:#00ffd5;
+  color:#00ffd5;
+}
+
+.auth-form{
+  display:none;
+}
+
+.auth-form.active{
+  display:block;
+}
+
+.auth-fields{
+  display:grid;
+  gap:12px;
+}
+
+.auth-fields input{
+  width:100%;
+  background:#101e29;
+  border:1px solid rgba(255,255,255,0.1);
+  color:#fff;
+  border-radius:12px;
+  padding:12px;
+  font-family:inherit;
+}
+
+.auth-submit{
+  margin-top:14px;
+  width:100%;
+  border:none;
+  cursor:pointer;
+}
+
+.auth-message{
+  margin-top:12px;
+  font-size:13px;
+  color:#b9c4cd;
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta{
+  background:
+  linear-gradient(
+    135deg,
+    #00ffd5,
+    #0077ff
+  );
+
+  border-radius:40px;
+  padding:90px 50px;
+  text-align:center;
+  color:#000;
+}
+
+.cta h2{
+  font-size:52px;
+  margin-bottom:20px;
+}
+
+.cta p{
+  max-width:750px;
+  margin:auto;
+  line-height:1.9;
+  margin-bottom:35px;
+  font-weight:500;
+}
+
+.cta .hero-btn.primary{
+  background:#000;
+  color:#fff;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+  background:#04080d;
+  padding:70px 8%;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+
+footer h4{
+  color:#00ffd5;
+  margin-bottom:20px;
+}
+
+footer p,
+footer a{
+  color:#bdbdbd;
+  line-height:2;
+}
+
+.copyright{
+  text-align:center;
+  margin-top:50px;
+  color:#777;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes zoomEffect{
+  0%{
+    transform:scale(1.08) translate3d(0,0,0);
+  }
+  50%{
+    transform:scale(1.16) translate3d(-1.2%,1.2%,0);
+  }
+  100%{
+    transform:scale(1.08) translate3d(1.2%,-1.2%,0);
+  }
+}
+
+@keyframes fadeUp{
+  0%{
+    opacity:0;
+    transform:translateY(80px);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes floatGlow{
+  0%{
+    transform:translateY(0) translateX(0);
+  }
+
+  50%{
+    transform:translateY(30px) translateX(20px);
+  }
+
+  100%{
+    transform:translateY(0) translateX(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:992px){
+
+  .hero-content h1{
+    font-size:56px;
+  }
+
+  .hero-content p{
+    font-size:18px;
+  }
+}
+
+@media(max-width:768px){
+
+  .navbar{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero-content{
+    padding:0 8%;
+  }
+
+  .hero{
+    min-height:560px;
+    height:100dvh;
+  }
+
+  .hero::before,
+  .hero::after{
+    height:20px;
+  }
+
+  .hero-content h1{
+    font-size:42px;
+  }
+
+  .hero-content p{
+    font-size:16px;
+  }
+
+  .hero-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .section-title h2{
+    font-size:36px;
+  }
+
+  .cta h2{
+    font-size:38px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+      Sabai <span>Smile</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Products</a>
+      <a href="#">Health Tourism</a>
+      <a href="#">Innovation</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <a href="#" class="nav-btn">
+      Get Started
+    </a>
+
+    <button class="hero-btn secondary auth-toggle" id="authToggle" type="button">
+      Login / Register
+    </button>
+
+    <div class="user-chip" id="userChip">
+      <span id="userLabel"></span>
+      <button type="button" id="logoutBtn">Logout</button>
+    </div>
+
+    <button class="cart-toggle" id="cartToggle" type="button" aria-label="Open shopping cart">
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+  </div>
+
+</header>
+
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <button class="close-btn" id="closeCart" type="button" aria-label="Close cart">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <strong>Total</strong>
+      <strong id="cartSubtotal">$0.00</strong>
+    </div>
+
+    <button class="hero-btn primary checkout-btn" id="checkoutBtn" type="button">
+      Proceed to Checkout
+    </button>
+  </div>
+
+</aside>
+
+<div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+  <div class="checkout-box">
+
+    <div class="checkout-top">
+      <h3>Checkout</h3>
+      <button class="close-btn" id="closeCheckout" type="button" aria-label="Close checkout">×</button>
+    </div>
+
+    <form id="checkoutForm">
+      <div class="checkout-grid">
+        <input type="text" name="fullName" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <input type="text" name="city" placeholder="City" required>
+        <textarea class="full" name="address" rows="3" placeholder="Shipping address" required></textarea>
+      </div>
+    </form>
+
+    <div class="checkout-summary" id="checkoutSummary"></div>
+
+    <div class="checkout-total">
+      <strong>Amount due</strong>
+      <strong id="checkoutTotal">$0.00</strong>
+    </div>
+
+    <p class="paypal-note" id="paypalNote">
+      Pay securely with PayPal. Server-side verification is required for production.
+    </p>
+
+    <div id="paypal-button-container"></div>
+
+  </div>
+</div>
+
+<div class="auth-modal" id="authModal" aria-hidden="true">
+  <div class="auth-box">
+
+    <div class="auth-head">
+      <h3>Account Access</h3>
+      <button class="close-btn" id="closeAuth" type="button" aria-label="Close login modal">×</button>
+    </div>
+
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" id="loginTab">Login</button>
+      <button type="button" class="auth-tab" id="registerTab">Register</button>
+    </div>
+
+    <form class="auth-form active" id="loginForm">
+      <div class="auth-fields">
+        <input type="email" name="loginEmail" placeholder="Email" required>
+        <input type="password" name="loginPassword" placeholder="Password" required>
+      </div>
+      <button class="hero-btn primary auth-submit" type="submit">Login</button>
+    </form>
+
+    <form class="auth-form" id="registerForm">
+      <div class="auth-fields">
+        <input type="text" name="registerName" placeholder="Full name" required>
+        <input type="email" name="registerEmail" placeholder="Email" required>
+        <input type="password" name="registerPassword" placeholder="Create password" minlength="6" required>
+      </div>
+      <button class="hero-btn primary auth-submit" type="submit">Create Account</button>
+    </form>
+
+    <p class="auth-message" id="authMessage">
+      Register with your email before purchasing products.
+    </p>
+
+  </div>
+</div>
+
+<!-- =========================================
+     HERO SECTION
+========================================= -->
+
+<section class="hero">
+
+  <div class="slider">
+
+    <!-- SLIDE 1 -->
+    <div class="slide slide-env active">
+
+      <div class="bg"
+      style="background-image:url('https://source.unsplash.com/2400x1350/?tropical,forest,waterfall');">
+      </div>
+
+      <div class="overlay"></div>
+      <div class="glow glow1"></div>
+
+      <div class="hero-content">
+
+        <span class="hero-tag">
+          ENVIRONMENTAL WELLNESS
+        </span>
+
+        <h1>
+          Nature Powered <br>
+          Sustainable Living
+        </h1>
+
+        <p>
+          Innovative eco-conscious wellness solutions inspired by
+          Thailand’s natural environment and future sustainability.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#" class="hero-btn primary">
+            Explore More
+          </a>
+
+          <a href="#" class="hero-btn secondary">
+            Our Vision
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide slide-innovation">
+
+      <div class="bg"
+      style="background-image:url('https://source.unsplash.com/2400x1350/?futuristic,technology,lab');">
+      </div>
+
+      <div class="overlay"></div>
+      <div class="glow glow2"></div>
+
+      <div class="hero-content">
+
+        <span class="hero-tag">
+          FUTURE INNOVATION
+        </span>
+
+        <h1>
+          Wellness Innovation <br>
+          For The Next Generation
+        </h1>
+
+        <p>
+          Merging technology, health science, and Thai wellness traditions
+          into futuristic global experiences.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#" class="hero-btn primary">
+            Innovation Hub
+          </a>
+
+          <a href="#" class="hero-btn secondary">
+            Discover
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide slide-health">
+
+      <div class="bg"
+      style="background-image:url('https://source.unsplash.com/2400x1350/?hospital,luxury,wellness,clinic');">
+      </div>
+
+      <div class="overlay"></div>
+      <div class="glow glow3"></div>
+
+      <div class="hero-content">
+
+        <span class="hero-tag">
+          ADVANCED HEALTHCARE
+        </span>
+
+        <h1>
+          Premium Health <br>
+          Tourism From Bangkok
+        </h1>
+
+        <p>
+          World-class healthcare journeys, luxury recovery programs,
+          and elite wellness tourism experiences in Thailand.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#" class="hero-btn primary">
+            Book Consultation
+          </a>
+
+          <a href="#" class="hero-btn secondary">
+            Medical Tourism
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide slide-exports">
+
+      <div class="bg"
+      style="background-image:url('https://source.unsplash.com/2400x1350/?wellness,products,packaging,export');">
+      </div>
+
+      <div class="overlay"></div>
+      <div class="glow glow4"></div>
+
+      <div class="hero-content">
+
+        <span class="hero-tag">
+          THAI WELLNESS EXPORTS
+        </span>
+
+        <h1>
+          Elegant Wellness <br>
+          Products Worldwide
+        </h1>
+
+        <p>
+          Exporting premium Thai wellness products, herbal solutions,
+          and natural health innovations globally.
+        </p>
+NEXT_PUBLIC_SUPABASE_URL=https://bqjajcpznprxpgxvbsck.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd-hn
+        <div class="hero-buttons">
+
+          <a href="#" class="hero-btn primary">
+            View Products
+          </a>
+
+          <a href="#" class="hero-btn secondary">
+            Global Exports
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- DOTS -->
+  <div class="slider-controls">
+
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     SERVICES
+========================================= -->
+
+<section id="products">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Our Core Solutions
+      </h2>
+
+      <p>
+        Sabai Smile Company combines wellness innovation,
+        advanced health tourism, environmental sustainability,
+        and premium Thai exports into one global brand.
+      </p>
+
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>Health Tourism</h3>
+        <p>
+          Luxury medical tourism experiences, wellness retreats,
+          and advanced recovery programs from Bangkok.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Thai Wellness</h3>
+        <p>
+          Premium herbal products, organic wellness supplements,
+          and natural Thai healing solutions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Innovation Labs</h3>
+        <p>
+          Research-driven wellness technologies, futuristic healthcare,
+          and sustainable product innovation.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Global Exports</h3>
+        <p>
+          Exporting trusted Thai wellness products and health innovations
+          to international markets worldwide.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     PRODUCTS
+========================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Featured Products
+      </h2>
+
+      <p>
+        Elegant wellness solutions designed for global health,
+        beauty, nutrition, and holistic lifestyles.
+      </p>
+
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/b%20clean.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            B Clean
+          </h4>
+
+          <p>
+            Premium wellness product from Sabai Smile's
+            curated health collection.
+          </p>
+
+          <span class="product-price">$24.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="B Clean" data-price="24.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/b%20green.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            B Green
+          </h4>
+
+          <p>
+            Natural wellness support designed for balanced
+            daily vitality and healthy living.
+          </p>
+
+          <span class="product-price">$26.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="B Green" data-price="26.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/black%20cumin.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            Black Cumin
+          </h4>
+
+          <p>
+            Traditional botanical wellness option crafted
+            for holistic health-focused routines.
+          </p>
+
+          <span class="product-price">$29.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="Black Cumin" data-price="29.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/sabai%20oil.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            Sabai Oil
+          </h4>
+
+          <p>
+            Signature aromatic oil made to support
+            relaxation and soothing self-care rituals.
+          </p>
+
+          <span class="product-price">$31.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="Sabai Oil" data-price="31.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/t-oil.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            T-Oil
+          </h4>
+
+          <p>
+            Concentrated herbal oil blend formulated
+            for everyday wellness and body comfort.
+          </p>
+
+          <span class="product-price">$28.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="T-Oil" data-price="28.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-img"
+        style="background-image:url('gallery1/vayu%20breathalyzer.png');">
+        </div>
+
+        <div class="product-content">
+
+          <h4>
+            Vayu Breathalyzer
+          </h4>
+
+          <p>
+            Innovative respiratory wellness product built
+            for modern preventative health applications.
+          </p>
+
+          <span class="product-price">$45.00</span>
+
+          <div class="product-actions">
+            <button class="hero-btn primary add-to-cart" type="button" data-name="Vayu Breathalyzer" data-price="45.00">
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>
+        Discover The Future Of Wellness
+      </h2>
+
+      <p>
+        Partner with Sabai Smile Company for premium health tourism,
+        futuristic wellness innovation, and trusted Thai wellness exports.
+      </p>
+
+      <a href="#" class="hero-btn primary">
+        Contact Us Today
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="footer-grid">
+
+    <div>
+
+      <h4>
+        Sabai Smile Company
+      </h4>
+
+      <p>
+        Leading innovation in wellness,
+        health tourism, and premium Thai exports.
+      </p>
+
+    </div>
+
+    <div>
+
+      <h4>
+        Quick Links
+      </h4>
+
+      <p><a href="#">Home</a></p>
+      <p><a href="#">Products</a></p>
+      <p><a href="#">Health Tourism</a></p>
+      <p><a href="#">Innovation</a></p>
+
+    </div>
+
+    <div>
+
+      <h4>
+        Contact
+      </h4>
+
+      <p>Bangkok, Thailand</p>
+      <p>info@sabaismile.com</p>
+      <p>+66 000 000 000</p>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Sabai Smile Company. All Rights Reserved.
+  </div>
+
+</footer>
+
+<!-- =========================================
+     JAVASCRIPT SLIDER
+========================================= -->
+
+<script src="https://www.paypal.com/sdk/js?client-id=AUCQnGEWwarUsf9v8fKVpvhaK2weQWAmN-1uUDbyWqpMGWvtrxff9drv2Hg16mhdIymgMOKuX06slsA0&currency=USD&intent=capture"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+  slides.forEach((slide)=>{
+    slide.classList.remove('active');
+  });
+
+  dots.forEach((dot)=>{
+    dot.classList.remove('active');
+  });
+
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+}
+
+function nextSlide(){
+
+  currentSlide++;
+
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
+  }
+
+  showSlide(currentSlide);
+}
+
+setInterval(nextSlide,5000);
+
+const cart = [];
+let paypalButtonsRendered = false;
+
+const cartToggle = document.getElementById('cartToggle');
+const closeCart = document.getElementById('closeCart');
+const cartDrawer = document.getElementById('cartDrawer');
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartSubtotal = document.getElementById('cartSubtotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const checkoutModal = document.getElementById('checkoutModal');
+const closeCheckout = document.getElementById('closeCheckout');
+const checkoutSummary = document.getElementById('checkoutSummary');
+const checkoutTotal = document.getElementById('checkoutTotal');
+const checkoutForm = document.getElementById('checkoutForm');
+const paypalNote = document.getElementById('paypalNote');
+const authToggle = document.getElementById('authToggle');
+const userChip = document.getElementById('userChip');
+const userLabel = document.getElementById('userLabel');
+const logoutBtn = document.getElementById('logoutBtn');
+const authModal = document.getElementById('authModal');
+const closeAuth = document.getElementById('closeAuth');
+const loginTab = document.getElementById('loginTab');
+const registerTab = document.getElementById('registerTab');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+const authMessage = document.getElementById('authMessage');
+
+const SUPABASE_URL = 'https://bqjajcpznprxpgxvbsck.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd-hn';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+
+let currentUser = null;
+
+function mapAuthUser(user){
+  if(!user){
+    return null;
+  }
+  return {
+    name:user.user_metadata?.full_name || user.user_metadata?.name || '',
+    email:user.email || ''
+  };
+}
+
+function setCurrentUser(user){
+  currentUser = user;
+  updateAuthUI();
+}
+
+function updateAuthUI(){
+  if(currentUser){
+    authToggle.style.display = 'none';
+    userChip.style.display = 'flex';
+    userLabel.textContent = currentUser.email;
+    const checkoutNameInput = checkoutForm.elements.namedItem('fullName');
+    const checkoutEmailInput = checkoutForm.elements.namedItem('email');
+    if(checkoutNameInput){
+      checkoutNameInput.value = currentUser.name || '';
+    }
+    if(checkoutEmailInput){
+      checkoutEmailInput.value = currentUser.email || '';
+    }
+  }else{
+    authToggle.style.display = 'inline-flex';
+    userChip.style.display = 'none';
+    userLabel.textContent = '';
+  }
+}
+
+function openAuthModal(){
+  authModal.classList.add('open');
+  authModal.setAttribute('aria-hidden','false');
+}
+
+function closeAuthModal(){
+  authModal.classList.remove('open');
+  authModal.setAttribute('aria-hidden','true');
+}
+
+function showAuthTab(tab){
+  const showLogin = tab === 'login';
+  loginTab.classList.toggle('active',showLogin);
+  registerTab.classList.toggle('active',!showLogin);
+  loginForm.classList.toggle('active',showLogin);
+  registerForm.classList.toggle('active',!showLogin);
+}
+
+function requireAuth(actionText){
+  if(currentUser){
+    return true;
+  }
+  authMessage.textContent = `Please login or register with email before ${actionText}.`;
+  showAuthTab('register');
+  openAuthModal();
+  return false;
+}
+
+function formatCurrency(amount){
+  return `$${amount.toFixed(2)}`;
+}
+
+function getCartTotal(){
+  return cart.reduce((sum,item)=>sum + (item.price * item.qty),0);
+}
+
+function renderCart(){
+  const totalQty = cart.reduce((sum,item)=>sum + item.qty,0);
+  cartCount.textContent = totalQty;
+
+  if(!cart.length){
+    cartItems.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+  }else{
+    cartItems.innerHTML = cart.map((item)=>`
+      <div class="cart-item">
+        <div>
+          <h5>${item.name}</h5>
+          <p>${formatCurrency(item.price)} each</p>
+        </div>
+        <div class="qty-controls">
+          <button type="button" data-action="decrease" data-name="${item.name}">−</button>
+          <span>${item.qty}</span>
+          <button type="button" data-action="increase" data-name="${item.name}">+</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const total = getCartTotal();
+  cartSubtotal.textContent = formatCurrency(total);
+  checkoutTotal.textContent = formatCurrency(total);
+  renderCheckoutSummary();
+}
+
+function renderCheckoutSummary(){
+  if(!cart.length){
+    checkoutSummary.innerHTML = '<p><span>No items selected</span><span>—</span></p>';
+    return;
+  }
+
+  checkoutSummary.innerHTML = cart.map((item)=>`
+    <p>
+      <span>${item.name} × ${item.qty}</span>
+      <strong>${formatCurrency(item.price * item.qty)}</strong>
+    </p>
+  `).join('');
+}
+
+function openCart(){
+  cartDrawer.classList.add('open');
+  cartDrawer.setAttribute('aria-hidden','false');
+}
+
+function closeCartDrawer(){
+  cartDrawer.classList.remove('open');
+  cartDrawer.setAttribute('aria-hidden','true');
+}
+
+function openCheckout(){
+  if(!cart.length){
+    alert('Your cart is empty. Add products first.');
+    return;
+  }
+  if(!requireAuth('purchasing')){
+    return;
+  }
+  checkoutModal.classList.add('open');
+  checkoutModal.setAttribute('aria-hidden','false');
+  initializePayPalButtons();
+}
+
+function closeCheckoutModal(){
+  checkoutModal.classList.remove('open');
+  checkoutModal.setAttribute('aria-hidden','true');
+}
+
+function initializePayPalButtons(){
+  if(paypalButtonsRendered){
+    return;
+  }
+
+  if(!window.paypal || !window.paypal.Buttons){
+    paypalNote.textContent = 'PayPal failed to load. Check internet access and the PayPal client ID.';
+    return;
+  }
+
+  window.paypal.Buttons({
+    createOrder: function(data, actions){
+      const total = getCartTotal().toFixed(2);
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: total }
+        }]
+      });
+    },
+    onApprove: function(data, actions){
+      return actions.order.capture().then(function(details){
+        alert(`Payment completed by ${details.payer.name.given_name}. Thank you for your purchase.`);
+        cart.length = 0;
+        renderCart();
+        closeCheckoutModal();
+        closeCartDrawer();
+        checkoutForm.reset();
+      });
+    },
+    onError: function(){
+      alert('PayPal payment could not be completed. Please try again.');
+    }
+  }).render('#paypal-button-container');
+
+  paypalButtonsRendered = true;
+}
+
+document.querySelectorAll('.add-to-cart').forEach((button)=>{
+  button.addEventListener('click',()=>{
+    if(!requireAuth('adding products to cart')){
+      return;
+    }
+
+    const name = button.dataset.name;
+    const price = Number(button.dataset.price);
+    const existing = cart.find((item)=>item.name === name);
+
+    if(existing){
+      existing.qty += 1;
+    }else{
+      cart.push({ name, price, qty:1 });
+    }
+
+    renderCart();
+    openCart();
+  });
+});
+
+cartItems.addEventListener('click',(event)=>{
+  const target = event.target;
+  if(!(target instanceof HTMLElement)){
+    return;
+  }
+
+  const action = target.dataset.action;
+  const name = target.dataset.name;
+
+  if(!action || !name){
+    return;
+  }
+
+  const item = cart.find((product)=>product.name === name);
+  if(!item){
+    return;
+  }
+
+  if(action === 'increase'){
+    item.qty += 1;
+  }
+
+  if(action === 'decrease'){
+    item.qty -= 1;
+    if(item.qty <= 0){
+      const index = cart.findIndex((product)=>product.name === name);
+      if(index >= 0){
+        cart.splice(index,1);
+      }
+    }
+  }
+
+  renderCart();
+});
+
+cartToggle.addEventListener('click',openCart);
+closeCart.addEventListener('click',closeCartDrawer);
+checkoutBtn.addEventListener('click',openCheckout);
+closeCheckout.addEventListener('click',closeCheckoutModal);
+authToggle.addEventListener('click',()=>{
+  authMessage.textContent = 'Login to continue shopping or create a new account.';
+  showAuthTab('login');
+  openAuthModal();
+});
+closeAuth.addEventListener('click',closeAuthModal);
+loginTab.addEventListener('click',()=>showAuthTab('login'));
+registerTab.addEventListener('click',()=>showAuthTab('register'));
+
+loginForm.addEventListener('submit',async (event)=>{
+  event.preventDefault();
+
+  const email = loginForm.elements.namedItem('loginEmail').value.trim().toLowerCase();
+  const password = loginForm.elements.namedItem('loginPassword').value;
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+  if(error){
+    authMessage.textContent = error.message || 'Invalid email or password. Please try again.';
+    return;
+  }
+
+  setCurrentUser(mapAuthUser(data.user));
+  authMessage.textContent = 'Login successful.';
+  closeAuthModal();
+  loginForm.reset();
+});
+
+registerForm.addEventListener('submit',async (event)=>{
+  event.preventDefault();
+
+  const name = registerForm.elements.namedItem('registerName').value.trim();
+  const email = registerForm.elements.namedItem('registerEmail').value.trim().toLowerCase();
+  const password = registerForm.elements.namedItem('registerPassword').value;
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options:{
+      data:{ full_name:name }
+    }
+  });
+
+  if(error){
+    authMessage.textContent = error.message || 'Registration failed. Please try again.';
+    return;
+  }
+
+  if(data.session && data.user){
+    setCurrentUser(mapAuthUser(data.user));
+    authMessage.textContent = 'Registration successful.';
+    closeAuthModal();
+  }else{
+    authMessage.textContent = 'Registration submitted. Please check your email to confirm your account, then login.';
+    showAuthTab('login');
+  }
+
+  registerForm.reset();
+});
+
+logoutBtn.addEventListener('click',async ()=>{
+  const { error } = await supabaseClient.auth.signOut();
+  if(error){
+    alert(error.message || 'Logout failed. Please try again.');
+    return;
+  }
+  setCurrentUser(null);
+  closeCheckoutModal();
+  alert('You have been logged out.');
+});
+
+checkoutModal.addEventListener('click',(event)=>{
+  if(event.target === checkoutModal){
+    closeCheckoutModal();
+  }
+});
+
+authModal.addEventListener('click',(event)=>{
+  if(event.target === authModal){
+    closeAuthModal();
+  }
+});
+
+async function initializeAuth(){
+  const { data, error } = await supabaseClient.auth.getSession();
+
+  if(error){
+    authMessage.textContent = 'Unable to connect to authentication service.';
+  }
+
+  if(data?.session?.user){
+    setCurrentUser(mapAuthUser(data.session.user));
+  }else{
+    setCurrentUser(null);
+  }
+
+  supabaseClient.auth.onAuthStateChange((event, session)=>{
+    if(session?.user){
+      setCurrentUser(mapAuthUser(session.user));
+    }else{
+      setCurrentUser(null);
+    }
+  });
+}
+
+initializeAuth();
+renderCart();
+
+</script>
+
+</body>
+</html>
