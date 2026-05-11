@@ -108,6 +108,33 @@ header{
   box-shadow:0 15px 35px rgba(0,255,213,0.25);
 }
 
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.menu-toggle{
+  display:none;
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  font-size:24px;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+}
+
+.menu-toggle:hover{
+  border-color:#00ffd5;
+  color:#00ffd5;
+}
+
 /* =========================================
    HERO CINEMATIC SLIDER
 ========================================= */
@@ -411,7 +438,7 @@ header{
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:35px;
 }
 
@@ -421,6 +448,8 @@ header{
   overflow:hidden;
   transition:0.5s;
   border:1px solid rgba(255,255,255,0.05);
+  display:flex;
+  flex-direction:column;
 }
 
 .product-card:hover{
@@ -429,13 +458,28 @@ header{
 }
 
 .product-img{
-  height:250px;
-  background-size:cover;
-  background-position:center;
+  width:100%;
+  aspect-ratio:1/1;
+  background:#fff;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
 }
 
 .product-content{
   padding:30px;
+  background:#0d1720;
+  display:flex;
+  flex-direction:column;
 }
 
 .product-content h4{
@@ -462,6 +506,7 @@ header{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
+  margin-top:auto;
 }
 
 .add-to-cart{
@@ -925,6 +970,25 @@ footer a{
 
 @media(max-width:992px){
 
+  section{
+    padding:100px 6%;
+  }
+
+  .navbar{
+    width:94%;
+    gap:14px;
+  }
+
+  .nav-links{
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .nav-actions{
+    justify-content:center;
+  }
+
   .hero-content h1{
     font-size:56px;
   }
@@ -932,13 +996,32 @@ footer a{
   .hero-content p{
     font-size:18px;
   }
+
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 
 @media(max-width:768px){
 
+  section{
+    padding:84px 6%;
+  }
+
+  header{
+    background:rgba(0,0,0,0.68);
+  }
+
   .navbar{
-    flex-direction:column;
-    gap:18px;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+    width:94%;
+  }
+
+  .menu-toggle{
+    display:flex;
   }
 
   .checkout-grid{
@@ -946,7 +1029,46 @@ footer a{
   }
 
   .nav-links{
-    flex-wrap:wrap;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px 16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:14px;
+  }
+
+  .navbar.mobile-open .nav-links{
+    display:flex;
+  }
+
+  .nav-links a{
+    font-size:14px;
+  }
+
+  .nav-actions{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:14px;
+  }
+
+  .navbar.mobile-open .nav-actions{
+    display:flex;
+  }
+
+  .nav-actions .nav-btn,
+  .nav-actions .auth-toggle,
+  .nav-actions .cart-toggle,
+  .nav-actions .user-chip{
+    width:100%;
     justify-content:center;
   }
 
@@ -972,9 +1094,43 @@ footer a{
     font-size:16px;
   }
 
-  .hero-btn{
+  .hero-buttons .hero-btn{
     width:100%;
     text-align:center;
+  }
+
+  .products,
+  .card-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .product-content,
+  .card,
+  .checkout-box,
+  .auth-box,
+  .cart-header,
+  .cart-items,
+  .cart-footer{
+    padding:18px;
+  }
+
+  .cart-drawer{
+    max-width:100%;
+    right:-100%;
+    height:100dvh;
+  }
+
+  .checkout-modal,
+  .auth-modal{
+    padding:12px;
+  }
+
+  .checkout-box,
+  .auth-box{
+    max-height:92dvh;
+    overflow:auto;
   }
 
   .section-title h2{
@@ -983,6 +1139,39 @@ footer a{
 
   .cta h2{
     font-size:38px;
+  }
+}
+
+@media(max-width:480px){
+
+  .logo{
+    font-size:24px;
+  }
+
+  .hero-content h1{
+    font-size:34px;
+    line-height:1.14;
+  }
+
+  .hero-content p{
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .cta h2{
+    font-size:30px;
+  }
+
+  .product-img{
+    padding:12px;
+  }
+
+  .slider-controls{
+    bottom:30px;
   }
 }
 
@@ -1003,6 +1192,10 @@ footer a{
       Sabai <span>Smile</span>
     </div>
 
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      ☰
+    </button>
+
     <div class="nav-links">
       <a href="#">Home</a>
       <a href="#">About</a>
@@ -1012,22 +1205,26 @@ footer a{
       <a href="#">Contact</a>
     </div>
 
-    <a href="#" class="nav-btn">
-      Get Started
-    </a>
+    <div class="nav-actions">
 
-    <button class="hero-btn secondary auth-toggle" id="authToggle" type="button">
-      Login / Register
-    </button>
+      <a href="#" class="nav-btn">
+        Get Started
+      </a>
 
-    <div class="user-chip" id="userChip">
-      <span id="userLabel"></span>
-      <button type="button" id="logoutBtn">Logout</button>
+      <button class="hero-btn secondary auth-toggle" id="authToggle" type="button">
+        Login / Register
+      </button>
+
+      <div class="user-chip" id="userChip">
+        <span id="userLabel"></span>
+        <button type="button" id="logoutBtn">Logout</button>
+      </div>
+
+      <button class="cart-toggle" id="cartToggle" type="button" aria-label="Open shopping cart">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+
     </div>
-
-    <button class="cart-toggle" id="cartToggle" type="button" aria-label="Open shopping cart">
-      Cart <span class="cart-count" id="cartCount">0</span>
-    </button>
 
   </div>
 
@@ -1406,8 +1603,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/b%20clean.png');">
+        <div class="product-img">
+          <img src="gallery1/b%20clean.png" alt="B Clean product image">
         </div>
 
         <div class="product-content">
@@ -1435,8 +1632,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/b%20green.png');">
+        <div class="product-img">
+          <img src="gallery1/b%20green.png" alt="B Green product image">
         </div>
 
         <div class="product-content">
@@ -1464,8 +1661,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/black%20cumin.png');">
+        <div class="product-img">
+          <img src="gallery1/black%20cumin.png" alt="Black Cumin product image">
         </div>
 
         <div class="product-content">
@@ -1493,8 +1690,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/sabai%20oil.png');">
+        <div class="product-img">
+          <img src="gallery1/sabai%20oil.png" alt="Sabai Oil product image">
         </div>
 
         <div class="product-content">
@@ -1522,8 +1719,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/t-oil.png');">
+        <div class="product-img">
+          <img src="gallery1/t-oil.png" alt="T-Oil product image">
         </div>
 
         <div class="product-content">
@@ -1551,8 +1748,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd
 
       <div class="product-card">
 
-        <div class="product-img"
-        style="background-image:url('gallery1/vayu%20breathalyzer.png');">
+        <div class="product-img">
+          <img src="gallery1/vayu%20breathalyzer.png" alt="Vayu Breathalyzer product image">
         </div>
 
         <div class="product-content">
@@ -1735,6 +1932,9 @@ const registerTab = document.getElementById('registerTab');
 const loginForm = document.getElementById('loginForm');
 const registerForm = document.getElementById('registerForm');
 const authMessage = document.getElementById('authMessage');
+const menuToggle = document.getElementById('menuToggle');
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-links a');
 
 const SUPABASE_URL = 'https://bqjajcpznprxpgxvbsck.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_9uS4bzJULgYSIyycD0BuCg_m0-dd-hn';
@@ -2086,6 +2286,24 @@ async function initializeAuth(){
 
 initializeAuth();
 renderCart();
+
+if(menuToggle && navbar){
+  menuToggle.addEventListener('click',()=>{
+    const isOpen = navbar.classList.toggle('mobile-open');
+    menuToggle.setAttribute('aria-expanded',String(isOpen));
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  navLinks.forEach((link)=>{
+    link.addEventListener('click',()=>{
+      if(window.innerWidth <= 768){
+        navbar.classList.remove('mobile-open');
+        menuToggle.setAttribute('aria-expanded','false');
+        menuToggle.textContent = '☰';
+      }
+    });
+  });
+}
 
 </script>
 
